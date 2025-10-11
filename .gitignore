@@ -18,3 +18,15 @@ chuyu-analysis/config.php
 /.vs
 /www.chuyu.me/de/index.html
 /www.chuyu.me/MakeWeb.cmd
+
+# Automation tool generated directories
+ConfigProfiles/
+BypassConfigs/
+OOBEConfigs/
+TelemetryConfigs/
+SecurityConfigs/
+UserConfigs/
+UUIDConfigs/
+BitLockerKeys/
+SystemScans/
+AdaptiveConfigs/
