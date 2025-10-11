@@ -1,0 +1,11 @@
+username,password,fullname,description
+admin1,SecureP@ssw0rd123,Administrator One,Primary System Administrator
+admin2,SecureP@ssw0rd456,Administrator Two,Backup System Administrator
+user1,UserP@ssw0rd123,John Smith,Standard User Account
+user2,UserP@ssw0rd456,Jane Doe,Standard User Account
+user3,UserP@ssw0rd789,Bob Johnson,Standard User Account
+dev1,DevP@ssw0rd123,Developer One,Software Developer
+dev2,DevP@ssw0rd456,Developer Two,Software Developer
+test1,TestP@ssw0rd123,Test User,Testing Account
+support1,SupportP@ssw0rd123,Support Staff,Help Desk Support
+guest1,GuestP@ssw0rd123,Guest User,Temporary Guest Account

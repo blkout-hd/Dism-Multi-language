@@ -2,6 +2,21 @@
 Dism++ resource files for supporting translation to various languages.
 The default language used for development is in Simplified Chinese.
 
+## 🚀 NEW: Automation Tools
+
+**Comprehensive Windows Automation CLI** - Automate deployment, configuration, and optimization!
+
+- 🔧 **System Configuration Replication** - Clone configurations across machines
+- 🚫 **Hardware Bypass** - Install Windows 11 on Intel 7700K and unsupported hardware
+- 💾 **Driver Injection** - Inject Ethernet, VMD, and storage drivers into WIM/ESD
+- 🎯 **OOBE Skip** - Automate Windows setup without user interaction
+- 🛡️ **Telemetry Removal** - Complete privacy and tracking removal
+- ⚡ **Performance Optimization** - Multimedia, WinRE, dual boot tuning
+- 🔐 **Security Hardening** - CIS/NIST/DISA STIG compliant configurations
+- 🤖 **Adaptive Profiles** - Intelligent configuration that adapts to your system
+
+📖 **[Get Started →](QUICKSTART.md)** | 📘 **[Full Guide →](AUTOMATION_GUIDE.md)** | 💡 **[Examples →](Examples/)**
+
 ---
 
 ## [Data.xml]

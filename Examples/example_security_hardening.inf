@@ -1,0 +1,126 @@
+[Unicode]
+Unicode=yes
+
+[Version]
+signature="$CHICAGO$"
+Revision=1
+
+;
+; Security Hardening Template
+; 
+; This template applies CIS Benchmark recommended security settings
+; 
+; Usage:
+; secedit /configure /db secedit.sdb /cfg example_security_hardening.inf /log security.log
+;
+; After applying, verify with:
+; secedit /analyze /db secedit.sdb /cfg example_security_hardening.inf /log security_analysis.log
+;
+
+[System Access]
+; Password Policy
+MinimumPasswordAge = 1
+MaximumPasswordAge = 90
+MinimumPasswordLength = 12
+PasswordComplexity = 1
+PasswordHistorySize = 24
+ClearTextPassword = 0
+
+; Account Lockout Policy
+LockoutBadCount = 5
+ResetLockoutCount = 30
+LockoutDuration = 30
+
+; Other Account Policies
+RequireLogonToChangePassword = 0
+ForceLogoffWhenHourExpire = 0
+NewAdministratorName = "Administrator"
+NewGuestName = "Guest"
+
+[Event Audit]
+; Audit Policy
+AuditSystemEvents = 3
+AuditLogonEvents = 3
+AuditObjectAccess = 2
+AuditPrivilegeUse = 2
+AuditPolicyChange = 3
+AuditAccountManage = 3
+AuditProcessTracking = 0
+AuditDSAccess = 2
+AuditAccountLogon = 3
+
+[Registry Values]
+; Network security settings
+MACHINE\System\CurrentControlSet\Control\Lsa\LmCompatibilityLevel=4,5
+MACHINE\System\CurrentControlSet\Control\Lsa\NoLMHash=4,1
+MACHINE\System\CurrentControlSet\Control\Lsa\RestrictAnonymous=4,1
+MACHINE\System\CurrentControlSet\Control\Lsa\RestrictAnonymousSAM=4,1
+
+; Interactive logon settings
+MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\CachedLogonsCount=1,"5"
+MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\PasswordExpiryWarning=4,14
+MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\ScRemoveOption=1,"2"
+
+; Session security
+MACHINE\System\CurrentControlSet\Control\Session Manager\Kernel\ObCaseInsensitive=4,1
+MACHINE\System\CurrentControlSet\Control\Session Manager\ProtectionMode=4,1
+
+; Network access
+MACHINE\System\CurrentControlSet\Control\Lsa\DisableDomainCreds=4,1
+MACHINE\System\CurrentControlSet\Control\Lsa\EveryoneIncludesAnonymous=4,0
+MACHINE\System\CurrentControlSet\Control\Lsa\ForceGuest=4,0
+MACHINE\System\CurrentControlSet\Control\Lsa\LimitBlankPasswordUse=4,1
+MACHINE\System\CurrentControlSet\Control\Lsa\UseMachineId=4,1
+
+; Shutdown settings
+MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\ShutdownWithoutLogon=1,"0"
+MACHINE\System\CurrentControlSet\Control\Lsa\LegalNoticeCaption=1,"Legal Notice"
+MACHINE\System\CurrentControlSet\Control\Lsa\LegalNoticeText=7,"Authorized use only. All activity may be monitored and reported."
+
+[Privilege Rights]
+; User Rights Assignment
+SeNetworkLogonRight = *S-1-5-32-544,*S-1-5-32-545
+SeInteractiveLogonRight = *S-1-5-32-544,*S-1-5-32-545
+SeBatchLogonRight = *S-1-5-32-544
+SeServiceLogonRight = 
+SeDenyNetworkLogonRight = *S-1-5-32-546
+SeDenyBatchLogonRight = *S-1-5-32-546
+SeDenyServiceLogonRight = *S-1-5-32-546
+SeDenyInteractiveLogonRight = *S-1-5-32-546
+SeRemoteInteractiveLogonRight = *S-1-5-32-544
+SeShutdownPrivilege = *S-1-5-32-544
+SeTakeOwnershipPrivilege = *S-1-5-32-544
+SeBackupPrivilege = *S-1-5-32-544,*S-1-5-32-551
+SeRestorePrivilege = *S-1-5-32-544,*S-1-5-32-551
+SeSystemtimePrivilege = *S-1-5-32-544,*S-1-5-19
+SeTimeZonePrivilege = *S-1-5-32-544,*S-1-5-19
+SeLoadDriverPrivilege = *S-1-5-32-544
+SeDebugPrivilege = *S-1-5-32-544
+SeAuditPrivilege = *S-1-5-19,*S-1-5-20
+SeSecurityPrivilege = *S-1-5-32-544
+SeSystemEnvironmentPrivilege = *S-1-5-32-544
+SeManageVolumePrivilege = *S-1-5-32-544
+
+[Service General Setting]
+; Disable unnecessary services (optional - uncomment to use)
+; "Alerter",2
+; "ClipSrv",2
+; "Browser",2
+; "RemoteRegistry",4
+
+[Registry Keys]
+; File system permissions
+; Add specific registry key permissions here if needed
+
+;
+; Notes:
+; - Audit values: 0 = No auditing, 1 = Success, 2 = Failure, 3 = Success and Failure
+; - Service startup: 2 = Automatic, 3 = Manual, 4 = Disabled
+; - SIDs: *S-1-5-32-544 = Administrators, *S-1-5-32-545 = Users, *S-1-5-32-546 = Guests
+;
+; This template provides baseline security. Additional hardening may be needed based on:
+; - Organization security policy
+; - Compliance requirements (NIST, CIS, DISA STIG)
+; - Application compatibility
+; - Business requirements
+;
