@@ -40,10 +40,13 @@ List of telemetry domains to block via hosts file.
 ### example_bulk_users.csv
 Template for bulk user account creation.
 
+**⚠️ IMPORTANT**: Change all passwords before use! Example passwords are prefixed with `CHANGE_ME_` as a reminder.
+
 **Usage**:
 1. Edit CSV with desired users
-2. Run DismAutomation.bat → [7] → [1]
-3. Users created automatically
+2. **REPLACE ALL PASSWORDS** with secure, unique passwords
+3. Run DismAutomation.bat → [7] → [1]
+4. Users created automatically
 
 **Format**:
 ```csv
