@@ -1,0 +1,49 @@
+Windows Registry Editor Version 5.00
+
+;
+; Hardware Restriction Bypass Configuration
+; 
+; This registry file bypasses Windows 11 hardware requirements.
+; Useful for installing Windows 11 on unsupported hardware like Intel 7700K.
+;
+; Usage:
+; 1. For USB installation: Copy to USB root
+; 2. For WIM injection: Import to registry of mounted image
+; 3. Double-click to apply to current system before upgrade
+;
+; IMPORTANT: Bypassing requirements may result in:
+; - Reduced security features
+; - Potential compatibility issues
+; - No official Microsoft support
+;
+
+[HKEY_LOCAL_MACHINE\SYSTEM\Setup\LabConfig]
+; Bypass TPM 2.0 requirement
+"BypassTPMCheck"=dword:00000001
+
+; Bypass Secure Boot requirement
+"BypassSecureBootCheck"=dword:00000001
+
+; Bypass RAM requirement (4GB minimum)
+"BypassRAMCheck"=dword:00000001
+
+; Bypass CPU generation requirement (Intel 8th Gen / AMD Zen 2)
+"BypassCPUCheck"=dword:00000001
+
+; Bypass storage requirement
+"BypassStorageCheck"=dword:00000001
+
+;
+; Additional Windows 11 bypass (alternative location)
+;
+[HKEY_LOCAL_MACHINE\SYSTEM\Setup\MoSetup]
+"AllowUpgradesWithUnsupportedTPMOrCPU"=dword:00000001
+
+;
+; Note: These settings are specifically useful for:
+; - Intel 7th Gen processors (Kaby Lake) like i7-7700K
+; - Intel 6th Gen processors (Skylake)
+; - Systems without TPM 2.0 module
+; - Systems without Secure Boot support
+; - Systems with less than 4GB RAM (not recommended)
+;
